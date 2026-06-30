@@ -339,3 +339,5 @@ app.get('/api/opportunities', async (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`🚀 GitHub Explorer API running on http://localhost:${PORT}`));
+
+export default app;

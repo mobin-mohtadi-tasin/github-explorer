@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "github-explorer/client/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    },
+    {
+      "src": "github-explorer/server/index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "github-explorer/server/index.js"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "github-explorer/client/dist/assets/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "github-explorer/client/dist/index.html"
+    }
+  ]
+}
