@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import UserProfile from './pages/UserProfile'
 import SearchPage from './pages/SearchPage'
 import Trending from './pages/Trending'
+import Jobs from './pages/Jobs'
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/user/:username" element={<UserProfile />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/trending" element={<Trending />} />
+        <Route path="/jobs" element={<Jobs />} />
       </Routes>
     </div>
   )

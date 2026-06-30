@@ -96,16 +96,11 @@ export default function Home() {
           </div>
         ) : (
           <div className="flex flex-col gap-3">
-            {jobs.map(job => (
+            {jobs.slice(0, 6).map(job => (
               <div 
                 key={job.id} 
                 className="p-3 bg-gh-darker/35 border border-gh-border rounded-lg hover:border-gh-blue/30 transition-colors flex gap-3 items-start"
               >
-                <img 
-                  src={job.logo} 
-                  alt={job.company} 
-                  className="w-10 h-10 rounded-lg border border-gh-border bg-white shrink-0 object-cover"
-                />
                 <div className="flex-1 min-w-0">
                   <h3 className="text-xs font-bold text-white truncate mb-0.5">{job.title}</h3>
                   <p className="text-[11px] font-semibold text-gray-400 mb-1">{job.company}</p>
@@ -137,6 +132,15 @@ export default function Home() {
                 </div>
               </div>
             ))}
+
+            {jobs.length > 6 && (
+              <button
+                onClick={() => navigate('/jobs')}
+                className="w-full mt-1 py-2 text-xs font-semibold text-center text-gh-blue hover:text-white bg-gh-darker/20 hover:bg-gh-darker/40 border border-gh-border hover:border-gh-blue/30 rounded-lg transition-colors"
+              >
+                Find More Jobs
+              </button>
+            )}
           </div>
         )}
       </div>

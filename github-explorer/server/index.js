@@ -344,8 +344,8 @@ app.get('/api/jobs', async (req, res) => {
     const response = await axios.get('https://remotive.com/api/remote-jobs?category=software-dev');
     const rawJobs = response.data.jobs || [];
     
-    // Map to client format and take top 15
-    const cleanJobs = rawJobs.slice(0, 15).map(job => ({
+    // Map to client format and take top 40
+    const cleanJobs = rawJobs.slice(0, 40).map(job => ({
       id: job.id,
       title: job.title,
       company: job.company_name,
