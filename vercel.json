@@ -20,11 +20,11 @@
     },
     {
       "src": "/assets/(.*)",
-      "dest": "github-explorer/client/dist/assets/$1"
+      "dest": "github-explorer/client/assets/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "github-explorer/client/dist/index.html"
+      "dest": "github-explorer/client/index.html"
     }
   ]
 }
