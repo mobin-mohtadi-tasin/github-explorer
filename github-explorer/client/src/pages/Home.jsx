@@ -26,7 +26,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8 lg:py-12 min-h-[calc(100vh-56px)] flex flex-col lg:flex-row gap-8 items-center lg:items-start justify-center">
+    <div className="max-w-7xl mx-auto px-4 py-8 lg:py-12 min-h-[calc(100vh-56px)] flex flex-col lg:flex-row gap-8 lg:gap-16 items-center lg:items-start justify-center">
       {/* ── LEFT: HERO & SEARCH ── */}
       <div className="flex-1 max-w-2xl w-full flex flex-col justify-center animate-fade-in">
         <div className="text-center lg:text-left">
@@ -96,7 +96,7 @@ export default function Home() {
           </div>
         ) : (
           <div className="flex flex-col gap-3">
-            {jobs.slice(0, 6).map(job => (
+            {jobs.slice(0, 5).map(job => (
               <div 
                 key={job.id} 
                 className="p-3 bg-gh-darker/35 border border-gh-border rounded-lg hover:border-gh-blue/30 transition-colors flex gap-3 items-start"
@@ -133,7 +133,7 @@ export default function Home() {
               </div>
             ))}
 
-            {jobs.length > 6 && (
+            {jobs.length > 5 && (
               <button
                 onClick={() => navigate('/jobs')}
                 className="w-full mt-1 py-2 text-xs font-semibold text-center text-gh-blue hover:text-white bg-gh-darker/20 hover:bg-gh-darker/40 border border-gh-border hover:border-gh-blue/30 rounded-lg transition-colors"
