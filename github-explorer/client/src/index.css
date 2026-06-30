@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body { @apply bg-gh-dark text-white font-sans antialiased; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #0d1117; }
+  ::-webkit-scrollbar-thumb { background: #30363d; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #58a6ff; }
+}
+
+@layer components {
+  .card { @apply bg-gh-surface border border-gh-border rounded-xl p-5; }
+  .btn-primary { @apply bg-gh-accent hover:bg-green-600 text-white px-4 py-2 rounded-lg font-medium transition-colors; }
+  .btn-ghost { @apply text-gray-400 hover:text-white hover:bg-white/5 px-3 py-1.5 rounded-lg transition-colors; }
+  .badge { @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium; }
+  .stat-card { @apply card flex flex-col gap-1; }
+}
+
+.rank-badge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.activity-cell { transition: transform 0.1s, opacity 0.1s; }
+.activity-cell:hover { transform: scale(1.4); }
