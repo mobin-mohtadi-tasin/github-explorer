@@ -26,7 +26,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8 lg:py-12 min-h-[calc(100vh-56px)] flex flex-col lg:flex-row gap-8 lg:gap-16 items-center lg:items-start justify-center">
+    <div className="max-w-7xl mx-auto px-4 py-8 lg:py-12 min-h-[calc(100vh-56px)] flex flex-col lg:flex-row gap-8 lg:gap-32 items-center lg:items-start justify-center">
       {/* ── LEFT: HERO & SEARCH ── */}
       <div className="flex-1 max-w-2xl w-full flex flex-col justify-center animate-fade-in">
         <div className="text-center lg:text-left">

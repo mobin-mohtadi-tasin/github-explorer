@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import axios from 'axios';
@@ -153,8 +154,28 @@ app.get('/api/search', async (req, res) => {
       { id: 9, login: 'microsoft', avatar_url: 'https://avatars.githubusercontent.com/u/6154722?v=4', type: 'Organization' }
     ];
     
-    const searchVal = q ? q.toLowerCase() : '';
+    const searchVal = q ? q.trim().toLowerCase() : '';
     const filtered = mockUsers.filter(u => u.login.toLowerCase().includes(searchVal));
+    
+    // Dynamic Fallback: If they typed a potential exact username that isn't in mockUsers,
+    // try fetching that specific user directly (which has a separate rate limit).
+    if (searchVal && !filtered.some(u => u.login.toLowerCase() === searchVal)) {
+      try {
+        const userRes = await githubAPI.get(`/users/${encodeURIComponent(searchVal)}`);
+        if (userRes.data) {
+          const exactUser = {
+            id: userRes.data.id,
+            login: userRes.data.login,
+            avatar_url: userRes.data.avatar_url,
+            type: userRes.data.type
+          };
+          filtered.unshift(exactUser);
+        }
+      } catch (userErr) {
+        // If the exact user fetch also fails or 404s, just proceed with normal mock list
+      }
+    }
+    
     res.json({
       total_count: filtered.length,
       incomplete_results: false,
