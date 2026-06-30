@@ -338,6 +338,63 @@ app.get('/api/opportunities', async (req, res) => {
   }
 });
 
+// GET /api/jobs
+app.get('/api/jobs', (req, res) => {
+  const jobs = [
+    {
+      id: 'job-1',
+      title: 'Senior React Developer',
+      company: 'Vercel',
+      location: 'Remote (US/Europe)',
+      salary: '$130k – $160k',
+      logo: 'https://avatars.githubusercontent.com/u/14985020?v=4',
+      tags: ['React', 'Next.js', 'TypeScript'],
+      url: 'https://vercel.com/careers'
+    },
+    {
+      id: 'job-2',
+      title: 'Senior Full-Stack Engineer',
+      company: 'Supabase',
+      location: 'Remote (Worldwide)',
+      salary: '$140k – $180k',
+      logo: 'https://avatars.githubusercontent.com/u/54469796?v=4',
+      tags: ['PostgreSQL', 'Go', 'React'],
+      url: 'https://supabase.com/careers'
+    },
+    {
+      id: 'job-3',
+      title: 'Backend Engineer (Go)',
+      company: 'GitLab',
+      location: 'Remote (Worldwide)',
+      salary: '$120k – $150k',
+      logo: 'https://avatars.githubusercontent.com/u/8816781?v=4',
+      tags: ['Go', 'Ruby', 'Kubernetes'],
+      url: 'https://about.gitlab.com/jobs/'
+    },
+    {
+      id: 'job-4',
+      title: 'Staff Frontend Engineer',
+      company: 'GitHub',
+      location: 'Remote (US)',
+      salary: '$160k – $200k',
+      logo: 'https://avatars.githubusercontent.com/u/9919?v=4',
+      tags: ['React', 'TypeScript', 'Accessibility'],
+      url: 'https://github.com/about/careers'
+    },
+    {
+      id: 'job-5',
+      title: 'DevOps & Infrastructure Engineer',
+      company: 'HashiCorp',
+      location: 'Remote (US/Canada)',
+      salary: '$135k – $170k',
+      logo: 'https://avatars.githubusercontent.com/u/7769853?v=4',
+      tags: ['Terraform', 'Go', 'AWS'],
+      url: 'https://www.hashicorp.com/careers'
+    }
+  ];
+  res.json(jobs);
+});
+
 app.listen(PORT, () => console.log(`🚀 GitHub Explorer API running on http://localhost:${PORT}`));
 
 export default app;
